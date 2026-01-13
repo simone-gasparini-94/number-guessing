@@ -1,13 +1,10 @@
-import readline from "node:readline";
-import { createDifficulties } from "./difficulty.js";
+import { chooseDifficulty } from "./difficulty.js";
 import { logWelcomeMessage } from "./log.js"
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdou
-});
-
-(function main(){
+async function main() {
     logWelcomeMessage();
-    const difficulties = createDifficulties();
-})();
+    const chances = await chooseDifficulty();
+    console.log(chances);
+};
+
+main();

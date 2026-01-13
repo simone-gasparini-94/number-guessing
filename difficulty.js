@@ -8,12 +8,11 @@ const difficulties = createDifficulties();
 
 export async function chooseDifficulty() {
     logDifficultyChoice();
-    let difficultyLevel = await promptDifficulty();
-    for (let i = 0; i < difficulties.length; i++) {
-        if (Number(difficultyLevel) == difficulties[i].level) {
-            return difficulties[i].chances;
-        };
-    }
+    let chosenLevel = await promptDifficulty();
+    const chosenDifficulty = difficulties.find(
+        element.level === Number(chosenLevel)
+    );
+    return chosenDifficulty.chances;
 }
 
 async function promptDifficulty() {

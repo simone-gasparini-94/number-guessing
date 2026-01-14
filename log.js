@@ -5,10 +5,21 @@ export function logWelcomeMessage() {
     console.log("");
 }
 
-export function logDifficultyChoice() {
+export function logDifficulties() {
     console.log("Please select the difficulty level:");
     console.log("1. Easy (10 chances)");
     console.log("2. Medium (5 chances)");
     console.log("3. Hard (3 chances)");
+    console.log("");
+}
+
+export function logDifficultyChoice(difficulty) {
+    console.log
+        (`You have selected the ${difficulty} difficulty level`);
+    console.log("");
+}
+
+export function logInvalidDifficulty() {
+    console.log("Invalid difficulty");
     console.log("");
 }

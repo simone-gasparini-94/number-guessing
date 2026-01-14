@@ -1,17 +1,26 @@
 import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
-import { logDifficultyChoice } from './log.js';
+import { 
+    logDifficulties,
+    logDifficultyChoice,
+    logInvalidDifficulty
+ } from './log.js';
 
 const rl = readline.createInterface({ input, output });
 
 const difficulties = createDifficulties();
 
 export async function chooseDifficulty() {
-    logDifficultyChoice();
+    logDifficulties();
     let chosenLevel = await promptDifficulty();
     const chosenDifficulty = difficulties.find(
-        element.level === Number(chosenLevel)
+        (element) => element.level === Number(chosenLevel)
     );
+    if (!chosenDifficulty) {
+        logInvalidDifficulty();
+        return chooseDifficulty();
+    }
+    logDifficultyChoice(chosenDifficulty.difficulty);
     return chosenDifficulty.chances;
 }
 

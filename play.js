@@ -7,7 +7,7 @@ import {
 } from "./log.js";
 
 export async function play(chances, numberToGuess, min, max) {
-    let attempt = 1;
+    let attempt = 0;
     while (attempt < chances) {
         const guess = await promptGuess();
         const guessNumber = Number(guess);

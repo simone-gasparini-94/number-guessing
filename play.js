@@ -17,7 +17,6 @@ export async function play(chances, numberToGuess, min, max) {
         } else {
             if (guessNumber === numberToGuess) {
                 logCorrectGuess(attempt);
-                rl.close();
                 return ;
             } else {
                 logWrongGuess(guessNumber, numberToGuess);
@@ -26,12 +25,21 @@ export async function play(chances, numberToGuess, min, max) {
         attempt++;
     }
     logNoMoreAttempts();
-    rl.close();
+}
+
+export async function playAgain() {
+    const playAgain = await promptPlayAgain();
+    return (playAgain == 'y');
 }
 
 async function promptGuess() {
     const guess = await rl.question("Enter your guess: ");
     return guess;
+}
+
+async function promptPlayAgain() {
+    const playAgain = await rl.question("Do you want to play again? (y/n) ");
+    return playAgain;
 }
 
 function isGuessValid(number, min, max) {

@@ -23,3 +23,29 @@ export function logInvalidDifficulty() {
     console.log("Invalid difficulty");
     console.log("");
 }
+
+export function logInvalidGuess() {
+    console.log("Invalid guess");
+    console.log("");
+}
+
+export function logCorrectGuess(attempt) {
+    console.log("Congratulations! " +
+        `You guessed the correct number in ${attempt} attempts`);
+    console.log("");
+}
+
+export function logWrongGuess(guessNumber, numberToGuess) {
+    if (guessNumber < numberToGuess) {
+        console.log("Incorrect! " +
+            `The number is greater than ${guessNumber}`);
+    } else {
+        console.log("Incorrect! " +
+            `The number is less than ${guessNumber}`); 
+    }
+    console.log("");
+}
+
+export function logNoMoreAttempts() {
+    console.log("Game over! You have no more attempts")
+}

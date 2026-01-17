@@ -1,12 +1,10 @@
-import * as readline from 'node:readline/promises';
-import { stdin as input, stdout as output } from 'node:process';
+import { rl } from "./rl.js";
+
 import { 
     logDifficulties,
     logDifficultyChoice,
     logInvalidDifficulty
  } from './log.js';
-
-const rl = readline.createInterface({ input, output });
 
 const difficulties = createDifficulties();
 

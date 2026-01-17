@@ -3,7 +3,8 @@ import {
     logInvalidGuess,
     logCorrectGuess,
     logWrongGuess,
-    logNoMoreAttempts
+    logNoMoreAttempts,
+    logInvalidPlayAgain
 } from "./log.js";
 
 export async function play(chances, numberToGuess, min, max) {
@@ -29,6 +30,10 @@ export async function play(chances, numberToGuess, min, max) {
 
 export async function playAgain() {
     const playAgain = await promptPlayAgain();
+    if (isPlayAgainValid(playAgain) == false) {
+        logInvalidPlayAgain();
+        await playAgain();
+    }
     return (playAgain == 'y');
 }
 
@@ -48,4 +53,8 @@ function isGuessValid(number, min, max) {
     } else {
         return true;
     }
+}
+
+function isPlayAgainValid(playAgain) {
+    return (playAgain == 'y' || playAgain == 'n');
 }

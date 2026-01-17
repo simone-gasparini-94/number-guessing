@@ -20,12 +20,12 @@ export function logDifficultyChoice(difficulty) {
 }
 
 export function logInvalidDifficulty() {
-    console.log("Invalid difficulty");
+    console.log("Invalid difficulty!");
     console.log("");
 }
 
 export function logInvalidGuess() {
-    console.log("Invalid guess");
+    console.log("Invalid guess!");
     console.log("");
 }
 
@@ -47,5 +47,15 @@ export function logWrongGuess(guessNumber, numberToGuess) {
 }
 
 export function logNoMoreAttempts() {
-    console.log("Game over! You have no more attempts")
+    console.log("Game over! You have no more attempts");
+    console.log("");
+}
+
+export function logInvalidPlayAgain() {
+    console.log("Invalid choice!")
+    console.log("");
+}
+
+export function logEmpty() {
+    console.log("");
 }

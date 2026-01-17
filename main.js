@@ -1,5 +1,5 @@
 import { chooseDifficulty } from "./difficulty.js";
-import { logWelcomeMessage } from "./log.js"
+import { logWelcomeMessage, logEmpty } from "./log.js"
 import { generateRandomNumber } from "./number.js";
 import { play, playAgain } from "./play.js";
 import { closeReadLine } from "./rl.js";
@@ -12,6 +12,7 @@ async function main() {
     const number = generateRandomNumber(min, max);
     await play(chances, number, min, max);
     if (await playAgain() == true) {
+        logEmpty();
         await main();
     } else {
         closeReadLine();

@@ -29,9 +29,10 @@ export function logInvalidGuess() {
     console.log("");
 }
 
-export function logCorrectGuess(attempt) {
+export function logCorrectGuess(attempt, time) {
     console.log("Congratulations! " +
-        `You guessed the correct number in ${attempt} attempts`);
+        `You guessed the correct number in:\n` +
+        `- ${attempt} attempts\n` + `- ${time} milliseconds`);
     console.log("");
 }
 

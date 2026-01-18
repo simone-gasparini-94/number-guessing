@@ -6,8 +6,10 @@ import {
     logNoMoreAttempts,
     logInvalidPlayAgain
 } from "./log.js";
+import { getInitialTime, getTimeDifference } from "./time.js";
 
 export async function play(chances, numberToGuess, min, max) {
+    const initialTime = getInitialTime();
     let attempt = 0;
     while (attempt < chances) {
         const guess = await promptGuess();
@@ -17,7 +19,8 @@ export async function play(chances, numberToGuess, min, max) {
             continue;
         } else {
             if (guessNumber === numberToGuess) {
-                logCorrectGuess(attempt);
+                const time = getTimeDifference(initialTime);
+                logCorrectGuess(attempt, time);
                 return ;
             } else {
                 logWrongGuess(guessNumber, numberToGuess);
